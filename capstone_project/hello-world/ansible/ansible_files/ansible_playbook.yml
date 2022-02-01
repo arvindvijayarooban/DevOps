@@ -1,0 +1,12 @@
+- name: My First Playbook
+  hosts: ansible_target1
+  become_user: ansible_controller
+  tasks:
+    - name: Ping Check using ping module
+      ping:
+    - name: change hello world
+      become: yes 
+      replace:    
+        dest: /usr/share/nginx/html/static/js/main.7fdb1a28.js
+        regexp: 'World!'
+        replace: 'DevOps!'
